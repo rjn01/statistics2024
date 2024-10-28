@@ -35,7 +35,7 @@
 \setlength{\headheight}{25pt}
 \fancyhf{}
 \rhead{
-    Shameem Ahmed Khan | Orkun Akyol | Gabriel Brown\\
+    Rajan Puri | Shameem Ahmed Khan | Orkun Akyol | Gabriel Brown\\
     Statistics | Winter 2024\\
     Homework 1
 }
@@ -57,6 +57,84 @@ P(positive test) = P(positive test $|$ has disease) P(has disease) + P(positive 
 = $0.9 * 0.01 + (1 - 0.9)*.99 = 0.108$\\
 Therefore, the probability that a patient has the disease given a positive test = $0.9 * 0.01 / 0.108 = 0.0833$ or 8.33\%\\
 Therefore, the test is not very useful in diagnosing a patient.
+
+\paragraph{2}
+\textbf{The Monty Hall problem is a probability puzzle based on a game show scenario:\begin{itemize}
+    \item There are three doors: behind one door is a prize (e.g., a car) and behind the other two doors are goats.
+    \item A contestant chooses one of the three doors.
+    \item The host, who knows what is behind each door, opens one of the two
+remaining doors with a goat behind it.
+    \item The contestant is then given the option to either stick with their initial choice or switch to the other unopened door.
+\end{itemize}
+Your task is to write a program (using Python or any other programming
+language of your choice) to simulate the probability of winning the prize if
+the contestant always switches their initial choice after the host reveals a goat.
+You can model the scenario as follows:\begin{itemize}
+    \item The prize is randomly assigned to one of the three doors (labeled 1,2 or 3) in a uniformly random manner.
+    \item The contestant randomly selects one of the doors (1, 2 or 3) with equal probability.
+    \item One of the unchosen doors that does not have the prize behind it is
+eliminated.
+    \item The contestant switches their initial choice to the remaining unopened door.
+\end{itemize}
+Simulate the above process 105
+times and track the number of times the contestant wins the prize by switching their initial choice. Based on this data,
+compute the proportion of times the contestant wins using this strategy. In
+general, do you have a better chance at winning the prize by changing your
+initial choice?
+}\\
+
+
+
+\lstset{
+    language=Python,
+}
+
+
+\begin{lstlisting}
+import random as rm
+
+def checkProb(total):
+    correct_answer = 0
+    # loop for total number
+    for i in range(total):
+        door = [1, 0, 0]
+        # shuffle door every time
+        rm.shuffle(door)
+        print(f"Here are the option for door: {door}")
+        # taking one value out of 3 options
+        person_choice = rm.randint(0, 2)
+        print(f"Here is person_choice: {person_choice}")
+        
+        # person has chosen, and now host will open one
+        host_choose = [i for i in range(3) if i != person_choice and door[i] != 1]
+        print(f"value after host taken one out {host_choose}")
+        
+        # person now has to take one out of the left 2 choices
+        # shuffling again
+        rm.shuffle(host_choose)
+        
+        # host takes out the first
+        host_choice = host_choose[0]
+        
+        # checking if it is correct
+        value = [i for i in range(len(door)) if i != host_choice and i != person_choice]
+        print(f"value is {value[0]}")
+        
+        if door[value[0]] == 1:
+            correct_answer += 1
+    
+    print(f"correct_answer is {correct_answer}")
+    
+    return correct_answer / total
+
+if __name__ == "__main__":
+    # total number of times 100000
+    total = 10**5
+    
+    result = checkProb(total)
+    
+    print(f"total prob is {result}")
+\end{lstlisting}
 
 \paragraph{3}
 \textbf{Let X be a continuous real-valued random variable with the probability density
