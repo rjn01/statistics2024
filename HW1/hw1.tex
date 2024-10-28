@@ -81,18 +81,15 @@ compute the proportion of times the contestant wins using this strategy. In
 general, do you have a better chance at winning the prize by changing your
 initial choice?
 }\\
-
-
-
-\lstset{
-    language=Python,
-}
-
-
-\begin{lstlisting}
-correct_answer is 66725
-total prob is 0.66725
+See code in problem2.py\\
+Output:\\
+\begin{lstlisting}[language=Python]
+total wins: 66719
+win percentage when switching: 66.719
 \end{lstlisting}
+If we don't change our initial choice, our chance of winning is 1 in 3, or 33.3\%\\
+Experimentally, we've shown that if we always switch, our change of winning is much higher than this.\\
+Therefore, based on this data, you have a better chance at winning in general if you always switch.
 
 \paragraph{3}
 \textbf{Let X be a continuous real-valued random variable with the probability density

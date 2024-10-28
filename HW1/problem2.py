@@ -36,7 +36,7 @@ def checkProb(total):
             correct_answer+=1
         
     
-    print(f"correct_answer is {correct_answer}")
+    print(f"total wins: {correct_answer}")
     
     return correct_answer/total
 
@@ -46,6 +46,6 @@ if __name__ == "__main__":
     #total number of time 100000
     total = 10**5
     
-    result = checkProb(total)
+    result = 100*checkProb(total)
     
-    print(f"total prob is {result}")
+    print(f"win percentage when switching: {result}")
