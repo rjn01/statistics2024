@@ -42,6 +42,21 @@
 \rfoot{\thepage}
 
 \begin{document}
+\paragraph{1}
+\textbf{A medical test for disease D has outcomes + (positive) and - (negative). We assume that \begin{itemize}
+    \item the probability for an individual to have the disease is 0.01
+    \item the probability of a positive test, given that the individual has the disease, is 0.9
+    \item the probability of a negative test, given that the individual does not have the disease, is 0.9
+\end{itemize}
+Compute the probability that an individual has the disease, given that the
+individual has tested positive. Comment on the quality of the test.}\\
+P(has disease | positive test) = P(positive test | has disease) P(has disease) / P(positive test)\\
+= $0.9 * 0.01 /$ P(positive test)\\
+P(positive test) = P(positive test | has disease) P(has disease) + P(positive test | doesn't have disease) P(doesn't have disease)\\
+= P(positive test | has disease) P(has disease) + (1 - P(negative test | doesn't have disease)) P(doesn't have disease)\\
+= $0.9 * 0.01 + (1 - 0.9)*.99 = 0.108$\\
+Therefore, the probability that a patient has the disease given a positive test = $0.9 * 0.01 / 0.108 = 0.0833$ or 8.33\%\\
+Therefore, the test is not very useful in diagnosing a patient.
 
 \paragraph{3}
 \textbf{Let X be a continuous real-valued random variable with the probability density
