@@ -50,10 +50,10 @@
 \end{itemize}
 Compute the probability that an individual has the disease, given that the
 individual has tested positive. Comment on the quality of the test.}\\
-P(has disease | positive test) = P(positive test | has disease) P(has disease) / P(positive test)\\
+P(has disease $|$ positive test) = P(positive test $|$ has disease) P(has disease) / P(positive test)\\
 = $0.9 * 0.01 /$ P(positive test)\\
-P(positive test) = P(positive test | has disease) P(has disease) + P(positive test | doesn't have disease) P(doesn't have disease)\\
-= P(positive test | has disease) P(has disease) + (1 - P(negative test | doesn't have disease)) P(doesn't have disease)\\
+P(positive test) = P(positive test $|$ has disease) P(has disease) + P(positive test $|$ doesn't have disease) P(doesn't have disease)\\
+= P(positive test $|$ has disease) P(has disease) + (1 - P(negative test $|$ doesn't have disease)) P(doesn't have disease)\\
 = $0.9 * 0.01 + (1 - 0.9)*.99 = 0.108$\\
 Therefore, the probability that a patient has the disease given a positive test = $0.9 * 0.01 / 0.108 = 0.0833$ or 8.33\%\\
 Therefore, the test is not very useful in diagnosing a patient.
