@@ -1,0 +1,93 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage[shortlabels]{enumitem}
+\usepackage{listings}
+\usepackage[document]{ragged2e}
+\usepackage{setspace}
+\onehalfspacing
+
+\author{Orkun Akyol}
+\title{Statistics For Data Science: HW 2}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\lstset{frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\setlength{\headheight}{25pt}
+\fancyhf{}
+\rhead{
+    Statistics | Winter 2024\\
+    Homework 2
+}
+\rfoot{\thepage}
+
+\begin{document}
+
+\paragraph{Q1}
+    To use the inverse transform sampling, first we need to calculate the cumulative distribution function of X. 
+    \[
+        F(x) = \int_{0}^{x} (4te^{-t^2})/(e^{-t^2}+1)^2 \,dt \
+    \]    
+    To calculate the integral, let us make the substitution \(u = e^{-t^2}+1 \). It follows that \(du = -2te^{-t^2}+1 \). Then,
+
+    \[
+        F(x) = -2\int_{0}^{x} 1/u^2 \,du \
+    \]   
+    \[
+        = 2/u \bigg\rvert_0^x
+    \] 
+    \[
+        = 2/(e^{-t^2}+1) \bigg\rvert_0^x
+    \]  
+    \[
+        = 2/(e^{-x^2}+1)-1
+    \]          
+    \[
+        = (e^{t^2}-1)/(e^{t^2}+1)
+    \]         
+        More precisely: \\
+        \text{} \\
+    $F(x) = \begin{cases}
+        0 & \text{if } x < 0\\
+        (e^{t^2}-1)/(e^{t^2}+1) & \text{if } x \ge 0\\
+    \end{cases}$ \\
+        \text{} \\
+
+    Now, let us calculate the inverse of the cdf: 
+    
+     \[
+        y = (e^{t^2}-1)/(e^{t^2}+1)
+    \]    
+    \[
+        y * (e^{t^2}+1) = (e^{t^2}-1) 
+    \]  
+    \[
+        y * e^{t^2} - (e^{t^2}) = -1-y 
+    \]
+    \[
+        e^{t^2} * (y-1) = -1-y
+    \]
+    \[
+        t^2 = \ln((-1-y)/(y-1))
+    \]
+        \[
+        t = \sqrt{\ln((-1-y)/(y-1))}
+    \]
+    Since the pdf is $0$ for $x<0$, we are interested in the positive root. For sampling from the CDF, the outputs and the plots, please see HW2Q1.ipynb. 
+
+\end{document}
