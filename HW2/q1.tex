@@ -8,6 +8,7 @@
 \usepackage{listings}
 \usepackage[document]{ragged2e}
 \usepackage{setspace}
+\graphicspath{ {./} }
 \onehalfspacing
 
 \author{Orkun Akyol}
@@ -31,7 +32,7 @@
 \setlength{\headheight}{25pt}
 \fancyhf{}
 \rhead{
-     Rajan Puri | Shameem Ahmed Khan | Orkun Akyol  \\
+    Rajan Puri | Shameem Ahmed Khan | Orkun Akyol | Gabriel Brown \\
     Statistics | Winter 2024\\
     Homework 2
 }
@@ -132,9 +133,48 @@ plt.ylabel('Density')
 plt.legend()
 plt.grid()
 plt.show()
-
-
 \end{lstlisting}
+
+\paragraph{Q3}
+\textbf{Let $X, Y \sim U(0,1)$ be independent random variables and define $Z = max(X, Y^2)$}
+\begin{enumerate}[(a)]
+    \item \textbf{derive the probability density function of Z.}\\
+    $F_Z(z) = P(Z\leq z) = P(max(X, Y^2) \leq z) = P(X \leq z \text{ and } Y^2 \leq z)$\\
+    X and Y are independent $\implies F_Z(z) = P(X\leq z) \dot P(Y^2\leq z) = P(X\leq z) \dot P(Y\leq \sqrt{z}) = z\sqrt{z}$ for $0\leq z \leq 1$\\
+    $f_Z(z) = \frac{d}{dz} F_Z(z) = \frac{3\sqrt{z}}{2}$\\
+    therefore, the PDF of Z is 
+    $$f_Z(z) = \begin{cases}
+    0 & \text{ if } x < 0\\
+    \frac{3\sqrt{z}}{2} & \text{ if } 0 \leq x \leq 1\\
+    0 & \text{ if } x > 1
+\end{cases}$$
+    \item \textbf{Draw a sample of size $n = 10^5$ from the probability distribution of Z and visualize the sample as a histogram. Plot the probability density you obtained in part (a) alongside the (appropriately normalized) histogram.}
+    See HW3Q3.ipynb to run code\\
+    \begin{lstlisting}[language=Python]
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+X = np.random.uniform(0, 1, 10**5)
+Y = np.random.uniform(0, 1, 10**5)
+Z = np.maximum(X, Y**2)
+
+sns.histplot(Z, bins=50, kde=False, stat='density', color='blue', label="Sampled Z")
+z_values = np.linspace(0, 1, 1000)
+pdf_values = (3 / 2) * np.sqrt(z_values)
+
+plt.plot(z_values, pdf_values, 'r-', label="pdf of Z", linewidth=2)
+
+plt.title("Histogram of 10^5 samples of Z and PDF")
+plt.xlabel("Z")
+plt.ylabel("Density")
+plt.legend()
+
+plt.show()
+\end{lstlisting}
+output:
+\includegraphics[scale=.7]{q3graph.png}\\
+\end{enumerate}
 
 \paragraph{Q4}
 Let \((X_1, X_2)\) be a joint random variable, and assume that 
