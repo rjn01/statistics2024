@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+1 - Expected Value
+\[
+E(|X|) = \int_{-\infty}^{\infty} |x| \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2 \sigma^2} (|x| - \mu)^2} \, dx
+\]
+
+Given that \( \mu = 0 \), \( \sigma^2 = 1 \) and that \( |X| \) is symmetric on \( 0 \), it becomes:
+
+\[
+E(|X|) = 2 \cdot \int_{0}^{\infty} x \cdot \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} \, dx
+\]
+
+\[
+= \frac{2}{\sqrt{2 \pi}} \int_{0}^{\infty} x e^{-\frac{x^2}{2}} \, dx
+\]
+
+Focusing on the integral, we can substitute \(x\) with \( u = \frac{x^2}{2} \), resulting in \(du = x\, dx\) and therefore:
+
+\[
+= \int_{0}^{\infty} \frac{du}{dx} e^{-u} \, dx = \int_{0}^{\infty} e^{-u} \, du = 1
+\]
+
+which leads to:
+
+\[
+E(|X|) = \frac{2}{\sqrt{2 \pi}} \int_{0}^{\infty} e^{-u} \, du = \frac{2}{\sqrt{2 \pi}} = \sqrt{\frac{2}{\pi}} 
+\]  
+2 - Variance
+\[
+Var(|X|) = E(|X|^2) - \mu^2
+\]
+Noting that \(X\textasciitilde N(0,1)\) is centered: 
+\[
+E(X^2)=Var(X)=\sigma^2=1
+\]
+Noting that \(|X|^2=X^2\), \(E(|X|^2)=E(X^2)=1\) holds.
+From the previous result we can compute \(\mu^2\):
+\[
+\mu^2 = (E(|X|))^2 =(\sqrt{\frac{2}{\pi}})^2
+\]
+Finally:
+\[
+Var(|X|)=1-\frac{2}{\pi}
+\]
+\end{document}

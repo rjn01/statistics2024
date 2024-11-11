@@ -1,0 +1,88 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage[shortlabels]{enumitem}
+\usepackage{listings}
+\usepackage[document]{ragged2e}
+\usepackage{setspace}
+\onehalfspacing
+
+\author{Orkun Akyol}
+\title{Statistics For Data Science: HW 3}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\lstset{frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\setlength{\headheight}{25pt}
+\fancyhf{}
+\rhead{
+    Statistics for DS Winter 2024 | Exercise 3    
+}
+\rfoot{\thepage}
+
+\begin{document}
+
+\paragraph{4.}
+
+    \begin{equation}
+        \mathbb{E}[\left \Vert X-\mu \right \Vert ^2] = 
+        \mathbb{E}[(X-\mu)^T(X-\mu)]
+    \end{equation}
+    
+    \begin{equation}
+       \mathbb{E}[\left \Vert X-\mu \right \Vert ^2] = 
+       \mathbb{E}[X^TX - 2X^T\mu + \mu^T\mu]
+    \end{equation}
+
+    \begin{equation}
+       \mathbb{E}[\left \Vert X-\mu \right \Vert ^2] = 
+       \mathbb{E}[X^TX] - \mu^T\mu
+    \end{equation}
+
+Now let us look at the term $\mathbb{E}[X^TX]$. It is equivalent to $\mathbb{E}[x_1^2 + x_2^2 + ... + x_d^2]$. We know that expected value of the sum of variables is equivalent to the sum of expected values of individual variables: 
+
+    \begin{equation}
+       \mathbb{E}[x_1^2 + x_2^2 + ... + x_d^2] = 
+       \mathbb{E}[x_1^2] + \mathbb{E}[x_2^2] + ... + \mathbb{E}[x_d^2]
+    \end{equation}
+
+On all of the terms we can apply the theorem of Variance Translation: 
+
+    \begin{equation}
+       Var(X) =  \mathbb{E}[X^2] - \mu^2
+    \end{equation}
+
+    \begin{equation}
+       \mathbb{E}[x_1^2] + \mathbb{E}[x_2^2] + ... + \mathbb{E}[x_d^2] = (Var(x_1) + \mu_1^2) + (Var(x_2) + \mu_2^2) + ... + (Var(x_d) + \mu_d^2)
+    \end{equation}
+
+We know that the diagonal values on the covariance matrix are variances for individual variables. The sum of them is equal to the trace of the matrix. If we also write the sum of individual $\mu$ values in matrix form, we get: 
+
+    \begin{equation}
+       \mathbb{E}[X^TX] = tr(C) + \mu^T\mu
+    \end{equation}
+
+Substituting this into (3), we get:
+
+    \begin{equation}
+       \mathbb{E}[\left \Vert X-\mu \right \Vert ^2] = 
+       tr(C) + \mu^T\mu- \mu^T\mu = tr(C)
+    \end{equation}
+
+This completes the proof. 
+\end{document}
