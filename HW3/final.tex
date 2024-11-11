@@ -9,6 +9,8 @@
 \usepackage[document]{ragged2e}
 \usepackage{setspace}
 \usepackage{textcomp}
+\usepackage[thinc]{esdiff}
+
 \newcommand{\mytexttilde}{\raisebox{0.5ex}{\texttildelow}}
 
 \onehalfspacing
@@ -40,6 +42,27 @@
 
 \begin{document}
 
+\paragraph{1.}
+Per given hint, we will calculate the expression $P(X^2<t)$, which is the CDF of the random variable Y. Differentiating should then give us the PDF. 
+
+    \begin{equation}
+        F_Y = P(X^2 < t) = P(-\sqrt{t} < X < \sqrt{t})
+    \end{equation}
+Since X is a standard normal variable, and the normal distribution is symmetric, we get:  
+    \begin{equation}
+        F_Y = \Phi(\sqrt{t}) - \Phi(-\sqrt{t}) = 2\Phi(\sqrt{t}) - 1
+    \end{equation}
+Now that we got the CDF of Y, we have to differentiate according to t. Via the chain rule: 
+
+    \begin{equation}
+       \diff{(2\Phi(\sqrt{t})-1)}{t} = 2(\frac{1}{2\sqrt{t}})\varphi(\sqrt{t})
+    \end{equation}
+
+Simplifying and plugging in the PDF of normal distribution results in the following: 
+    \begin{equation}
+       f_Y(t) = \frac{1}{\sqrt{2\pi t}}e^{-t/2}
+    \end{equation}
+This is obviously only relevant for $t>0$. For $t<0$, $f_Y(t) = 0$ since $X^2$ is never $0$.
 \paragraph{2.}
 Expected Value:
 \[
