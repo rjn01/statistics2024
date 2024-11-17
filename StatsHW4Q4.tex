@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+
+\date{November 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Question 4}
+\section{(a)}
+To show that \(f_k\) is a probability density function, these conditions have to hold:
+\[f_k(x) \geq 0, \forall x \in (0,\infty) \tag{1}\]
+\[
+\int_{-\infty}^{\infty} f_k(x)dx =1 \tag{2}
+\]
+The (1) is proved because for \(x<1\), \(f_k(x)=0\) and for \(x \geq 1\), the sign of the function only depends on \(k\), which is non-negative because it is a natural number.
+The (2) is proved because: \[
+\int_{-\infty}^{1} 0 dx + \int_{1}^{\infty}\frac{k}{x^{k+1}}dx=k\int_{1}^{ \infty}x^{-k-1}dx=1, \forall k>0 \tag{3}
+\]
+\section{(b)}
+To prove the existence of the moments, we need to proof that they are finite. Therefore:
+\[
+\mathbb{E}[X^ℓ] = \int_{1}^{\infty}\frac{kx^ℓ}{x^{k+1}}dx=k\int_{1}^{\infty}x^{ℓ-k-1}dx \tag{4}
+\]
+To be finite, the integrand have to converge, which happens when \(ℓ-k-1<-1\), or \(ℓ<k\). This shows that the moments \(\mathbb{E}[X^ℓ]\) exist for \(0 \leq ℓ\leq k-1\) and not for \(ℓ\geq k\).
+\section{(c)}
+Each of the random variables \(X_i\) is integrable if its expected value is finite. Noting (4):\[
+\mathbb{E}[X]=k\int_{1}^{\infty}x^{-k}dx \tag{5}
+\]
+we can say that \(\mathbb{E}[X]\) is finite when \(-k<-1\). Considering that the random variables \(X_i\) are i.i.d. by construction, the weak Law of Large Numbers suggests that the sample average \(\overline{X}_n\) converges in probability to \(\mathbb{E[X]}\) for \(k>1\). For \(k=1\), \(\mathbb{E}[X]\) does not exist.
+\end{document}
