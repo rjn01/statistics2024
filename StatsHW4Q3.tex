@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings} % For including code in the document
+
+\date{November 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Question 3}
+
+\begin{lstlisting}[language=Python, caption=Monte Carlo Integration Python Code]
+import numpy as np
+
+
+
+def I_d(d):
+    return 2**d * np.cos(d / 2) * (np.sin(0.5))**d
+
+
+def g(x):
+    return np.cos(np.sum(x))
+
+def monte_carlo_integral(d, n):
+    samples = np.random.uniform(0, 1, (n, d))
+    return np.mean([g(x) for x in samples])
+
+
+d_values = [10, 100, 1000]
+n_powers = np.arange(0, 21)
+errors = {d: [] for d in d_values}
+
+
+for d in d_values:
+    true_value = I_d(d)
+    for k in n_powers:
+        n = 2**k 
+        estimate = monte_carlo_integral(d, n)
+        error = np.abs(true_value - estimate)
+        errors[d].append(error)
+
+\end{lstlisting}
+
+On increasing the value of \(d\), the convergence rate of the Monte Carlo estimate does not change significantly. 
+
+\end{document}
