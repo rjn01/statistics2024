@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\section{Question 1}
+\textbf{(a)} Given that the sample mean \(\bar{m}_n\) is
+\[
+\bar{m}_n = \frac{1}{n} \sum_{k=1}^{n} X_k
+\]
+where \(X_1, X_2, \dots, X_n\) are i.i.d. random variables, each with mean \(E[X_k] = m\). 
+For the linear expectation operator:
+\[
+E[\bar{m}_n] = E\left[\frac{1}{n} \sum_{k=1}^{n} X_k\right] = \frac{1}{n} \sum_{k=1}^{n} E[X_k] = \frac{1}{n} \cdot n \cdot m = m
+\]
+Thus, \(E[\bar{m}_n] = m\).
+
+\vspace{1em} % Add space between paragraphs
+
+\textbf{(b)} The variance of \(\bar{m}_n\) is:
+\[
+\text{Var}(\bar{m}_n) = \text{Var}\left(\frac{1}{n} \sum_{k=1}^{n} X_k\right)
+\]
+Using the property \(\text{Var}(aX) = a^2 \text{Var}(X)\), we get
+\[
+\text{Var}(\bar{m}_n) = \frac{1}{n^2} \text{Var}\left(\sum_{k=1}^{n} X_k\right)
+\]
+For independent random variables \(X_1, X_2, \dots, X_n\), the variance of the sum is the sum of their variances:
+\[
+\text{Var}(\bar{m}_n) = \frac{1}{n^2} \sum_{k=1}^{n} \text{Var}(X_k)
+\]
+Since all \(X_k\) are identically distributed with \(\text{Var}(X_k) = \sigma^2\), we have:
+\[
+\text{Var}(\bar{m}_n) = \frac{1}{n^2} \sum_{k=1}^{n} \sigma^2 = \frac{1}{n^2} \cdot n \cdot \sigma^2 = \frac{\sigma^2}{n}
+\]
+Thus, \(\text{Var}(\bar{m}_n) = \frac{\sigma^2}{n}\).
+
+\vspace{1em} % Add space between paragraphs
+
+\textbf{(c)} The general form of the normal distribution is:
+\[
+f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2 \sigma^2} (x - \mu)^2}
+\]
+Simplifying the provided probability density function to the general form for the normal distribution:
+\[
+f(x) = \frac{1}{\sqrt{4 \pi}} e^{-\frac{1}{4} (x - 1)^2} = \frac{1}{\sqrt{2 \pi 2}} e^{-\frac{1}{2 \cdot 2} (x - 1)^2}
+\]
+So, the provided probability density function is a normal distribution with mean \(\mu = 1\) and variance \(\sigma^2 = 2\).
+
+Given that
+\[
+\text{Var}(\bar{m}_n) \leq 10^{-2}
+\]
+\[
+\frac{\sigma^2}{n} \leq 10^{-2}
+\]
+we have ${\sigma^2 =2}$
+\[
+\frac{2}{n} \leq 10^{-2}
+\]
+which implies
+\[
+n \geq 2 \times 10^2 = 200
+\]
+Thus, the sample size \(n\) needs to be 200 or greater.
+
+\end{document}
+
