@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\date{November 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Question 1}
+To compute the confidence intervals, we need to compute the sample mean and variance first: \( \overline{x}=399.26, s_n^2=4.896\). 
+a) The confidence interval for the mean mass of the cookie packages is computed through the critic values of the t-Student distribution with \(\alpha=0.95,d.f.=9\).
+Confidence interval for the mean:\[
+-t_{\alpha/2,9} < \frac{\overline{x}-\mu}{s_n/\sqrt{n}}<t_{\alpha/2,9} \rightarrow \overline{x}-t_{\alpha/2,9}\frac{s_n}{\sqrt{n}}<\mu<\overline{x}+t_{\alpha/2,9}\frac{s_n}{\sqrt{n}}
+\]
+Which results in:\[
+\mu \in (397.68, 400.84)
+\]
+b) The confidence interval for the variance of the mass of the cookie packages is computed through the critic value of the chi-square distribution with \(\alpha=0.95,d.f.=9\).
+Confidence interval for the variance:\[
+\chi^2_{1-\frac{\alpha}{2}}<\frac{(n-1)s_n^2}{\sigma^2}<\chi^2_{\frac{\alpha}{2}} \rightarrow \frac{(n-1)s_n^2}{\chi^2_{0.975}}<\sigma^2<\frac{(n-1)s_n^2}{\chi^2_{0.025}}
+\]
+Which results in:\[
+\sigma^2 \in (2.317, 16.32)
+\]
+\end{document}
