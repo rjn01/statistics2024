@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\begin{document}
+
+\maketitle
+
+\section{Question 4}
+The null-hypothesis of the \(\chi^2\) goodness-of-fit test to test the fairness of a six-faced dice rolled 120 times is:\[
+H_0: x_i \sim MN(n,p_i)
+\]The alternative hypothesis:\[
+H_1: x_i \not\sim MN(n,p_i)
+\]
+Where \(n\) is 120 and \(p_i=1/6, \forall i\), e.g. the probability of each of the 6 outcomes is the same. To evaluate if the experiment uses a fair dice, we compute the test statistic, which compares the observed frequencies to the expected ones. The expected frequencies are equal for each category: \(E_i=20, \forall i\).  The test statistic is constructed as follows:\[
+\chi^2 = \sum_{i=1}^{k=6} \frac{(O_i - E_i)^2}{E_i}=13.1
+\]
+And, because \(n\) is large, it approximately follows \(\chi^2_{(k-1)}\) distribution. For a significance level of \(3\%\), the critical value is: \(\chi^2_{5, 0.03} \approx 12.833\), and therefore the associated p-value is: \(p-value \in [0.01,0.025]\). Because the p-value is smaller than the significance level, the null hypothesis is rejected. The dice is therefore significantly unfair by this test with this significance level.
+
+\end{document}
