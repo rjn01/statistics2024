@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{statsHW8Q3}
+\author{davide govoni}
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Question 3}
+Throughout the examination of the salary levels of the three companies using both ANOVA and the Kruskal-Wallis test, the outputs were diverging. Because of the differences between the two tests, they find their strength in diverse situations and respond differently to the presence of outliers (as in this case). Since the ANOVA compares raw data and uses its variance to carry on the testing, it is sensible to the presence of big outliers or the presence of a large variability in a single sample. However, it is stronger when the assumptions of normality and homogeneity of variances are met. On the other hand, the Kruskal-Wallis test compares the samples through a rank, which it is not affected by the variance of the raw data nor the presence of a drastic outlier. This means that this test is stronger in comparing samples with high variance or in the presence of big outliers (as in this case). 
+Testing
+The null-hypothesis in ANOVA is the equality of the expected values in the samples, and it produced the following test statistic:
+\[H_0: \mu_1=...=\mu_k\]
+\[F = \frac{(n-k) SSG}{(k-1)SSE}=0.571\]
+therefore, the null-hypothesis is not rejected, meaning that there is no significant difference between the samples.
+The null-hypothesis in the K-W test is the equality of the medians in the samples, tested on a rank linked to the observations, and it produced the following test statistic:
+\[H_0: m_1=...=m_k\]
+\[K=(n-1)\frac{SSG_r}{SST_r}=6.866\]
+therefore, the null-hypothesis is rejected, meaning that there is significant difference between the samples. 
+To state which method is better for examining this case, we should try to consider the samples without the presence of the outlier (third observation in group C) and evaluate if the diversion in the outcomes is ascribable to the sensitiveness of the ANOVA to outliers. Therefore, by simply removing the outlier (it should be treated with more caution but is not the point of this exercise) both method converge in rejecting the null-hypothesis of no difference between the groups. Moreover, the K-W test statistic takes a higher value, reinforcing the conclusion. 
+The difference in the groups can be seen in the salary levels: group C's highest salary (not considering the outlier) is lower than most of the observations in the group A and B. Moreover, if we consider the medians of the group, the difference is crystal clear, highlighting an unbalanced concentration in group C compared to A and B. 
+Finally, for this case, the Kruskal-Wallis test works better to examine the salary levels in the groups because it can overcome the presence of an outlier, and it confirms the clear differences in the groups. The ANOVA fails to capture the significant differences in the groups due to the distortion caused by the extreme outlier in group C.
+\end{document}
