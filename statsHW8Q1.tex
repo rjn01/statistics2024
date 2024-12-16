@@ -1,0 +1,97 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage[shortlabels]{enumitem}
+\usepackage{listings}
+\usepackage[document]{ragged2e}
+\usepackage{inconsolata}
+\pgfplotsset{compat=1.16}
+\usepackage{graphicx}
+\usepackage{setspace}
+\graphicspath{ {./images/} }
+\onehalfspacing
+
+\author{Rajan Puri}
+\title{Statistics For Data Science: Exercise 8 }
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\lstset{frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\setlength{\headheight}{25pt}
+\fancyhf{}
+\rhead{
+    Rajan Puri | Shameem Ahmed Khan | Orkun Akyol | Davide Govoni\\
+    Statistics | Winter 2024\\
+    Assignment 8
+}
+\rfoot{\thepage}
+
+\begin{document}
+\section{Question}
+\textbfCompare the one sample t-test, the one sample sign test, and the one sample Wilcoxon signed rank test. \begin{itemize}
+    \item State the general statistical assumptions needed for applying these tests,and explain how the assumptions needed for applying these tests differ from each other.
+    \item State the null hypotheses of the tests and explain how the null hypotheses of these tests differ from each other. State also the alternative hypotheses of the tests and explain how the alternative hypotheses of these tests differ from each other.
+
+    \item Which one of these three tests requires the mildest assumptions?
+\end{itemize}
+
+
+\paragraph{Answer}
+A) \begin{itemize}
+    \item The one sample t-test compares the expected value of a random variable
+to a given constant and assumed that the observations follow the normal distribution.
+\item the sign test requires milder distributional assumptions and takes value from continuous variable
+\item the one sample Wilcoxon signed rank test requires milder distributional assumptions. It assumes the data are symmetrically distributed around the median.
+
+The t-test has the strongest assumption (normality of the data).
+The sign test has the mildest assumptions since it only requires ordinal data.
+The Wilcoxon signed rank test relaxes the normality assumption but still requires symmetry in the distribution.
+\end{itemize} 
+
+B)
+ \begin{itemize}
+    \item One Sample T test
+The mean of the population is equal to a specified value (μ = µ0)
+    The null hypothesis: H0 : µ = µ0.
+    The possible alternative hypotheses:
+    H1 : µ $>$ µ0 (one tailed),
+    H1 : µ $<$ µ0 (one tailed),
+    H1 : µ ̸$̸=$ µ0 (two tailed).
+
+\item One sample sign test
+The median of the population is equal to a specified value (Median = m0)
+The null hypothesis: H0 : m = m0.
+Possible alternative hypotheses:
+H1 : m $>$ m0 (one tailed),
+H1 : m $<$ m0 (one tailed),
+H1 : m ̸$̸=$ m0 (two tailed).
+
+\item Wilcxon signed test
+Here m is the population median, and m0 is the population median
+The null hypothesis H0: m = m0.
+Possible alternative hypotheses:
+H1: m $>$ m0 (one tailed),
+H1: m $<$ m0 (one tailed),
+H1: m $̸=$  m0 (two tailed).
+\end{itemize} 
+
+C) Sign test
+
+
+
+\end{document}
