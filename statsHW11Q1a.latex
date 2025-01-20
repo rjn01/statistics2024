@@ -1,0 +1,89 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+Question: 1(a)
+
+Bayes' Formula:
+\(f\left( x \middle| y \right) = \ \frac{f\left( y \middle| x \right)f(x)}{f(y)}\)
+
+Where:
+
+Prior density of x is:
+\(f(x) = \frac{1}{\sqrt{2\pi}}e^{- \ \frac{(x - 1)^{2}}{2}}\)
+
+Observable y is given by: \(y = \ x^{2} + \eta,\) where η
+\(\sim N(0,1).\) Thus, given \(x,y\) is normally distributed with mean
+\(x^{2}\) and variance 1:
+
+\[y|x\ \sim\ N(x^{2},1)\]
+
+Density of y given x is:
+\(f\left( y \middle| x \right) = \frac{1}{\sqrt{2\pi}}e^{- \ \frac{\left( y - x^{2} \right)^{2}}{2}}\)
+
+Using Bayes' Formula Posterior Density :
+
+\[f\left( x \middle| y \right) \propto \ f\left( y \middle| x \right)\ f(x)\]
+
+Substitute the expression for \(f\left( x \middle| y \right)\) and
+\(f(x)\):
+
+\[f\left( x \middle| y \right) \propto \ \left( \frac{1}{\sqrt{2\pi}}e^{- \ \frac{\left( y - x^{2} \right)^{2}}{2}} \right)\left( \frac{1}{\sqrt{2\pi}}e^{- \ \frac{(x - 1)^{2}}{2}} \right)\]
+
+\[f\left( x \middle| y \right) \propto e^{- \ \frac{\left( y - x^{2} \right)^{2}}{2}}e^{- \ \frac{(x - 1)^{2}}{2}}\]
+
+Combining the exponents:
+
+\[f\left( x \middle| y \right) \propto \ e^{- \ \frac{1}{2}\left\lbrack \left( y - x^{2} \right)^{2} + (x - 1)^{2} \right\rbrack}\]
+
+\end{document}
